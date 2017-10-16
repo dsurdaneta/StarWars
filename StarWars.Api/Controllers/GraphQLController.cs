@@ -12,8 +12,8 @@ namespace StarWars.Api.Controllers
     {
         /*
          * Use constructor injection of StarWarsQuery in GraphQLController
-         *
-          private StarWarsQuery _starWarsQuery { get; set; }
+         */
+        private StarWarsQuery _starWarsQuery { get; set; }
 
         public GraphQLController(StarWarsQuery starWarsQuery)
         {
@@ -23,16 +23,7 @@ namespace StarWars.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GraphQLQuery query)
         {
-            var schema = new Schema { Query = _starWarsQuery };
-        */     
-
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] GraphQLQuery query)
-        {
-            /* Using StarWars.Core.Data.IDroidRepository*/
-            //var schema = new Schema { Query = new StarWarsQuery(new DroidRepository()) };
-            
-            var schema = new Schema { Query = new StarWarsQuery() };
+            var schema = new Schema { Query = _starWarsQuery };        
            
             var result = await new DocumentExecuter().ExecuteAsync(_ =>
             {

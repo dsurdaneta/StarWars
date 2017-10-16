@@ -31,8 +31,8 @@ namespace StarWars.Api
             services.AddMvc();
 
             /* Using StarWars.Core.Data.IDroidRepository*/
-            //services.AddTransient<Models.StarWarsQuery>();
-            //services.AddTransient<Core.Data.IDroidRepository, Data.InMemory.DroidRepository>();
+            services.AddTransient<Models.StarWarsQuery>();
+            services.AddTransient<Core.Data.IDroidRepository, Data.InMemory.DroidRepository>();
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

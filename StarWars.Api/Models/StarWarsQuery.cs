@@ -16,8 +16,7 @@ namespace StarWars.Api.Models
             );
         }
 
-        /* Using StarWars.Core.Data.IDroidRepository*/
-        /*
+        /* Using StarWars.Core.Data.IDroidRepository*/       
         private IDroidRepository _droidRepository { get; set; }
 
         public StarWarsQuery(IDroidRepository _droidRepository)
@@ -26,7 +25,6 @@ namespace StarWars.Api.Models
               "hero",
               resolve: context => _droidRepository.Get(1)
             );
-        }
-        */
+        }       
     }
 }
